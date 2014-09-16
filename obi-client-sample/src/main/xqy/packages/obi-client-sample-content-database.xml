@@ -1,0 +1,25 @@
+<package-database xmlns:cts="http://marklogic.com/cts" xmlns="http://marklogic.com/manage/package/databases">
+  <config>
+    <package-database-properties>
+      <range-element-indexes>
+        <range-element-index>
+          <scalar-type>string</scalar-type>
+          <namespace-uri>http://marklogic.com/solutions/obi/object/link</namespace-uri>
+          <localname>fromId</localname>
+          <collation>http://marklogic.com/collation/</collation>
+          <range-value-positions>false</range-value-positions>
+          <invalid-values>reject</invalid-values>
+        </range-element-index>
+        <range-element-index>
+          <scalar-type>string</scalar-type>
+          <namespace-uri>http://marklogic.com/solutions/obi/object/link</namespace-uri>
+          <localname>toId</localname>
+          <collation>http://marklogic.com/collation/</collation>
+          <range-value-positions>false</range-value-positions>
+          <invalid-values>reject</invalid-values>
+        </range-element-index>
+      </range-element-indexes>
+    </package-database-properties>
+  </config>
+</package-database>
+

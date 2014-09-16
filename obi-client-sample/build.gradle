@@ -1,0 +1,39 @@
+buildscript {
+  repositories {
+    mavenCentral()
+    maven {url "http://developer.marklogic.com/maven2/"}
+    maven {url "http://rjrudin.github.io/marklogic-java/releases"}
+  }
+  
+  dependencies {
+    classpath "com.marklogic:ml-gradle:0.5.2"
+  }
+}
+
+apply plugin: 'ml-gradle'
+
+repositories {
+  maven {url "http://rjrudin.github.io/xquery-repo/releases"}
+}
+
+dependencies {
+  mlRestApi "com.marklogic:obi-xquery:0.1"
+}
+
+ext {
+  mlUsername = "admin"
+  mlPassword = "admin"
+  mlHost = "localhost"
+  
+  mlAppConfig {
+    name = "obi-client-sample"
+    restPort = 8025
+    xdbcPort = 8026
+  }
+
+  mlManageConfig {
+    contentDatabaseFilePath = "build/transformed-content-database.xml"
+  }
+}
+
+mlMergeDatabasePackages.mergePackageFilePaths = ["build/mlRestApi/obi/packages/content-database.xml", "src/main/xqy/packages/obi-client-sample-content-database.xml"]
