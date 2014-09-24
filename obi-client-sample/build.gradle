@@ -6,7 +6,7 @@ buildscript {
   }
   
   dependencies {
-    classpath "com.marklogic:ml-gradle:0.6.1"
+    classpath "com.marklogic:ml-gradle:0.7"
   }
 }
 
@@ -20,10 +20,7 @@ dependencies {
   mlRestApi "com.marklogic:obi-xquery:0.1.4"
 }
 
-ext {
-  mlManageConfig {
-    contentDatabaseFilePath = "build/transformed-content-database.xml"
-  }
-}
-
-mlMergeDatabasePackages.mergePackageFilePaths = ["build/mlRestApi/obi/packages/content-database.xml", "src/main/xqy/packages/obi-client-sample-content-database.xml"]
+mlMergeDatabasePackages.mergePackageFilePaths = [
+  "build/mlRestApi/obi/packages/content-database.xml", 
+  "src/main/xqy/packages/obi-client-sample-content-database.xml"
+]
