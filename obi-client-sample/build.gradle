@@ -6,7 +6,7 @@ buildscript {
   }
   
   dependencies {
-    classpath "com.marklogic:ml-gradle:0.5.2"
+    classpath "com.marklogic:ml-gradle:0.6.1"
   }
 }
 
@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-  mlRestApi "com.marklogic:obi-xquery:0.1"
+  mlRestApi "com.marklogic:obi-xquery:0.1.4"
 }
 
 ext {
