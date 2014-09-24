@@ -21,16 +21,6 @@ dependencies {
 }
 
 ext {
-  mlUsername = "admin"
-  mlPassword = "admin"
-  mlHost = "localhost"
-  
-  mlAppConfig {
-    name = "obi-client-sample"
-    restPort = 8025
-    xdbcPort = 8026
-  }
-
   mlManageConfig {
     contentDatabaseFilePath = "build/transformed-content-database.xml"
   }
