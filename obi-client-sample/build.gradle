@@ -1,3 +1,8 @@
+/**
+ * You can use this project as a starting point for a new OBI project. For details on how the Gradle file works, please
+ * see the sample-project in the marklogic-java Github repository - https://github.com/rjrudin/marklogic-java/tree/master/sample-project
+ */
+ 
 buildscript {
   repositories {
     mavenCentral()
@@ -10,6 +15,11 @@ buildscript {
   }
 }
 
+// Only need these if you want to open the project in Eclipse and do Java-ish things
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+// Need this plugin to enable all the ml-gradle tasks
 apply plugin: 'ml-gradle'
 
 repositories {
