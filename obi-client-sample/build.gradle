@@ -17,10 +17,11 @@ repositories {
 }
 
 dependencies {
-  mlRestApi "com.marklogic:obi-xquery:0.1.4"
+  mlRestApi "com.marklogic:obi-xquery:0.2"
 }
 
 mlMergeDatabasePackages.mergePackageFilePaths = [
   "build/mlRestApi/obi/packages/content-database.xml", 
+  "build/mlRestApi/obi/packages/obi-ids-content-database.xml", 
   "src/main/xqy/packages/obi-client-sample-content-database.xml"
 ]
