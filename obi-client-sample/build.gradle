@@ -1,6 +1,10 @@
 /**
  * You can use this project as a starting point for a new OBI project. For details on how the Gradle file works, please
- * see the sample-project in the marklogic-java Github repository - https://github.com/rjrudin/marklogic-java/tree/master/sample-project
+ * see the sample-project in the marklogic-java Github repository - https://github.com/rjrudin/marklogic-java/tree/master/sample-project.
+ *
+ * To install this sample app, just run "gradle mlDeploy" from this directory. This will install OBI along with the
+ * modules found in the src/main/xqy directory in this project. You can then go to http://localhost:8025/v1/resources/api to see the 
+ * documentation for the OBI services and the "my-service" service that is installed. 
  */
  
 buildscript {

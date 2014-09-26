@@ -2,12 +2,17 @@ xquery version "1.0-ml";
 
 module namespace resource = "http://marklogic.com/rest-api/resource/my-service";
 
+import module namespace sample = "urn:obi-client-sample:sample" at "/ext/obi-client-sample/sample-lib.xqy";
+
 declare function get(
   $context as map:map,
   $params  as map:map
   ) as document-node()*
 {
-  xdmp:log("GET called")
+  xdmp:log("GET called"),
+  document{
+    sample:echo(map:get($params, "text"))
+  }
 };
 
 declare function put(

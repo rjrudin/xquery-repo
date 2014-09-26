@@ -6,7 +6,7 @@
     </div>
   </description>
   <method name="GET">
-    <param name="id" />
+    <param name="text" />
   </method>
   <method name="POST"/>
   <method name="PUT"/>
