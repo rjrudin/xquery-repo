@@ -3,21 +3,28 @@
 	extension-element-prefixes="xdmp">
 
 	<xsl:template match="/rapi:Config">
+		<xsl:variable name="title" select="'REST API Configuration Extensions'" />
 		<html xmlns="http://www.w3.org/1999/xhtml">
 			<head>
 				<meta charset="utf-8"></meta>
 				<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 				<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-				<title>REST API Extensions</title>
+				<title>
+					<xsl:value-of select="$title" />
+				</title>
 				<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></link>
 				<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"></link>
 			</head>
 			<body class="container">
 				<div class="page-header">
-					<h1>REST API Extensions</h1>
+					<h1>
+						<xsl:value-of select="$title" />
+					</h1>
 				</div>
 				<p>
 					The tabs below show all of the resources, query options, and transforms installed in your REST API server.
+				</p>
+				<p>
 					Each list is built from the data that's available from
 					<a href="/v1/config/resources">/v1/config/resources</a>
 					,
