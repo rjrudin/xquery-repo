@@ -1,0 +1,41 @@
+apply plugin: 'maven-publish'
+
+ext {
+  def timestamp = new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date())
+  pubVersion = project.hasProperty("pubVersion") ? project.getProperty("pubVersion") : "0.SNAPSHOT." + timestamp
+}
+
+task xqueryZip(type: Zip) {
+  from 'src/main/xqy'
+  into 'pretty-config'
+  destinationDir file('build/tmp/xquery')
+  baseName "pretty-config"
+}
+
+configurations {
+  xquery
+}
+
+artifacts {
+  xquery xqueryZip
+}
+
+publishing {
+  publications {
+    mainXquery(MavenPublication) {
+      groupId 'com.marklogic'
+      artifactId 'pretty-config'
+      version pubVersion
+      artifact xqueryZip
+    }
+  }
+  repositories {
+    maven {
+      if (!pubVersion.contains("SNAPSHOT")) {
+        url "file://$projectDir/../../gh-pages-xquery-repo/releases"
+      } else {
+        url mavenLocal().url
+      }
+    }
+  }
+}

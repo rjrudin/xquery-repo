@@ -1,0 +1,21 @@
+<metadata>
+	<title>Pretty Config</title>
+	<description>
+		<div>
+			<p>
+				This services provides a "pretty" HTML view of each of the REST extensions present in this REST server.
+			</p>
+			<ul>
+				<li>
+					GET - get a pretty HTML view of the REST API extensions.
+					<ul>
+						<li>transform - (optional) the name of a registered transform to build the view of the extensions. Defaults to pretty-config-transform.</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</description>
+	<method name="GET">
+		<param name="transform" />
+	</method>
+</metadata>
