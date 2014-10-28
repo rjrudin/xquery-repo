@@ -40,12 +40,15 @@
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane active" id="resources">
+						<br />
 						<xsl:apply-templates select="rapi:resources" />
 					</div>
 					<div class="tab-pane" id="options">
+						<br />
 						<xsl:apply-templates select="rapi:query-options" />
 					</div>
 					<div class="tab-pane" id="transforms">
+						<br />
 						<xsl:apply-templates select="rapi:transforms" />
 					</div>
 				</div>
