@@ -15,7 +15,7 @@ buildscript {
   }
   
   dependencies {
-    classpath "com.marklogic:ml-gradle:0.7"
+    classpath "com.marklogic:ml-gradle:0.9.4"
   }
 }
 
@@ -26,14 +26,18 @@ apply plugin: 'eclipse'
 // Need this plugin to enable all the ml-gradle tasks
 apply plugin: 'ml-gradle'
 
+// This repository hosts zips of the OBI XQuery code
 repositories {
   maven {url "http://rjrudin.github.io/xquery-repo/releases"}
 }
 
+// This dependency will tell Gradle to download the OBI XQuery zip and install all of the code into your REST API modules database
 dependencies {
-  mlRestApi "com.marklogic:obi-xquery:0.2"
+  mlRestApi "com.marklogic:obi-xquery:0.6.1"
 }
 
+// Your content database needs to include some OBI configuration settings, and you're free to add whatever other
+// configuration settings you wish
 mlMergeDatabasePackages.mergePackageFilePaths = [
   "build/mlRestApi/obi/packages/content-database.xml", 
   "build/mlRestApi/obi/packages/obi-ids-content-database.xml", 

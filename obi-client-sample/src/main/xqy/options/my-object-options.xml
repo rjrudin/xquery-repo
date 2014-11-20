@@ -3,10 +3,14 @@ This is the same (or very similar) to the object-options that come with OBI. It 
 put custom options documents so that they're automatically loaded by the ml-gradle tasks.
 -->
 <options xmlns="http://marklogic.com/appservices/search">
-  <searchable-expression>fn:collection('object')</searchable-expression>
+  <additional-query>
+    <cts:collection-query xmlns:cts="http://marklogic.com/cts">
+      <cts:uri>object</cts:uri>
+    </cts:collection-query>
+  </additional-query>
   <constraint name="id">
     <value>
-      <element ns="http://marklogic.com/solutions/obi/object" name="id" />
+      <element name="id" ns="http://marklogic.com/solutions/obi/object" />
     </value>
   </constraint>
   <constraint name="object-region">
@@ -14,20 +18,4 @@ put custom options documents so that they're automatically loaded by the ml-grad
       <element ns="http://marklogic.com/solutions/obi/object" name="objectRegion" />
     </geo-elem>
   </constraint>
-  <constraint name="sourced-by">
-    <custom facet="false">
-      <parse apply="parse-structured" ns="http://marklogic.com/solutions/obi/search" at="/ext/obi/lib/sourced-by-constraint.xqy" />
-    </custom>
-  </constraint>
-  <values name="link-values">
-    <range type="xs:string">
-      <path-index xmlns:obj="http://marklogic.com/solutions/obi/object" xmlns:sem="http://marklogic.com/semantics">/obj:object/obj:links/sem:triple/sem:predicate
-      </path-index>
-    </range>
-  </values>
-  <values name="source-id">
-    <range type="xs:string">
-      <element ns="http://marklogic.com/solutions/obi/object" name="sourceId" />
-    </range>
-  </values>
 </options>
