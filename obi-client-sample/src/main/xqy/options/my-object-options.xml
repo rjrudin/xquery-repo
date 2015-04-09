@@ -13,9 +13,4 @@ put custom options documents so that they're automatically loaded by the ml-grad
       <element name="id" ns="http://marklogic.com/solutions/obi/object" />
     </value>
   </constraint>
-  <constraint name="object-region">
-    <geo-elem>
-      <element ns="http://marklogic.com/solutions/obi/object" name="objectRegion" />
-    </geo-elem>
-  </constraint>
 </options>
