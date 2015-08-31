@@ -1,0 +1,13 @@
+{
+  "database-name": "%%DATABASE%%",
+  "range-element-index": [
+    {
+      "scalar-type": "string",
+      "namespace-uri": "urn:obi-client-sample:person",
+      "localname": "gender",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    }
+  ]
+}

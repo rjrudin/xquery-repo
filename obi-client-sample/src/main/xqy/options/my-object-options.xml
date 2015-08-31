@@ -5,7 +5,7 @@ put custom options documents so that they're automatically loaded by the ml-grad
 <options xmlns="http://marklogic.com/appservices/search">
   <additional-query>
     <cts:collection-query xmlns:cts="http://marklogic.com/cts">
-      <cts:uri>object</cts:uri>
+      <cts:uri>http://marklogic.com/solutions/obi/object</cts:uri>
     </cts:collection-query>
   </additional-query>
   <constraint name="id">

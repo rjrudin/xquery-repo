@@ -15,7 +15,7 @@ buildscript {
   }
   
   dependencies {
-    classpath "com.marklogic:ml-gradle:1.2"
+    classpath "com.rjrudin:ml-gradle:2.0b5"
   }
 }
 
@@ -33,37 +33,15 @@ repositories {
 
 // This dependency will tell Gradle to download the OBI XQuery zip and install all of the code into your REST API modules database
 dependencies {
-  mlRestApi "com.marklogic:obi-xquery:0.8.8"
+  mlRestApi "com.marklogic:obi-xquery:1.0rc1"
 }
 
 // Your content database needs to include some OBI configuration settings, and you're free to add whatever other
 // configuration settings you wish
 ext {
   mlAppConfig {
-    databasePackageFilePaths = [
-      "build/mlRestApi/obi/packages/content-database.xml", 
-      "build/mlRestApi/obi/packages/obi-ids-content-database.xml", 
-      "src/main/xqy/packages/obi-client-sample-content-database.xml"
-    ]
+      modulePaths = ["src/main/xqy"]
+      configDir.contentDatabaseFiles.add(new File("build/mlRestApi/obi/ml-config/databases/content-database.json"))
+      configDir.contentDatabaseFiles.add(new File("build/mlRestApi/obi/ml-config/databases/obi-ids-content-database.json"))
   }
 }
-
-// Use mlcp to load the OBI assets
-
-configurations { mlcp }
-
-dependencies {
-  mlcp("com.marklogic:mlcp-Hadoop2:1.2-3") {exclude module:"commons-modeler"}
-  mlcp("commons-modeler:commons-modeler:2.0") {transitive = false}
-}
-
-repositories { 
-  maven { url "http://repository.cloudera.com/artifactory/cloudera-repos/" }
-  mavenCentral()
-  maven { url "http://developer.marklogic.com/maven2/"}
-}
-
-mlLoadAssetsViaMlcp.classpath = configurations.mlcp
-mlLoadAssetsViaMlcp.port = mlAppConfig.modulesXdbcPort
-mlLoadModules.dependsOn mlLoadAssetsViaMlcp
-
