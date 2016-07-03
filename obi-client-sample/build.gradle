@@ -32,7 +32,7 @@ repositories {
 
 // This dependency will tell Gradle to download the OBI XQuery zip and install all of the code into your REST API modules database
 dependencies {
-  mlRestApi "com.marklogic:obi-xquery:1.0rc1"
+  mlRestApi "com.marklogic:obi-xquery:1.0"
 }
 
 // Your content database needs to include some OBI configuration settings, and you're free to add whatever other
