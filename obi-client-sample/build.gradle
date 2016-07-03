@@ -9,13 +9,12 @@
  
 buildscript {
   repositories {
-    mavenCentral()
+    jcenter()
     maven {url "http://developer.marklogic.com/maven2/"}
-    maven {url "http://rjrudin.github.io/marklogic-java/releases"}
   }
   
   dependencies {
-    classpath "com.rjrudin:ml-gradle:2.0b5"
+    classpath "com.marklogic:ml-gradle:2.2.0"
   }
 }
 
@@ -24,7 +23,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 // Need this plugin to enable all the ml-gradle tasks
-apply plugin: 'ml-gradle'
+apply plugin: 'com.marklogic.ml-gradle'
 
 // This repository hosts zips of the OBI XQuery code
 repositories {
@@ -40,7 +39,6 @@ dependencies {
 // configuration settings you wish
 ext {
   mlAppConfig {
-      modulePaths = ["src/main/xqy"]
       configDir.contentDatabaseFiles.add(new File("build/mlRestApi/obi/ml-config/databases/content-database.json"))
       configDir.contentDatabaseFiles.add(new File("build/mlRestApi/obi/ml-config/databases/obi-ids-content-database.json"))
   }

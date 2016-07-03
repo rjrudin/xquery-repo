@@ -1,0 +1,16 @@
+<!-- 
+This is the same (or very similar) to the object-options that come with OBI. It just serves as an example of where to
+put custom options documents so that they're automatically loaded by the ml-gradle tasks.
+-->
+<options xmlns="http://marklogic.com/appservices/search">
+  <additional-query>
+    <cts:collection-query xmlns:cts="http://marklogic.com/cts">
+      <cts:uri>http://marklogic.com/solutions/obi/object</cts:uri>
+    </cts:collection-query>
+  </additional-query>
+  <constraint name="id">
+    <value>
+      <element name="id" ns="http://marklogic.com/solutions/obi/object" />
+    </value>
+  </constraint>
+</options>
